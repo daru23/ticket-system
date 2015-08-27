@@ -1,0 +1,14 @@
+############################ CLIENTE ###########################################
+md5	: cliente_ip.c env_clnt.c env_xdr.c md5c.o global.h 
+	cc -o ip_cliente cliente_ip.c env_clnt.c env_xdr.c md5c.o
+
+md5c.o	: md5c.c md5.h global.h
+	cc -c md5c.c
+
+############################# SERVIDOR #########################################
+md5	:  ip_proc.c env_svc.c env_xdr.c  md5c.o global.h 
+	cc -o ip_servidor ip_proc.c env_svc.c env_xdr.c  md5c.o
+
+md5c.o	: md5c.c md5.h global.h
+	cc -c md5c.c
+
